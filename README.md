@@ -21,16 +21,13 @@ After ~10 similar projects I used to make using perfboards and PCBs etched at ho
 
 ## Relays
 
-### Dry contact output
-* Populate Kn_DRY terminal (closer to the relay)
-* Leave Kn_230VAC unpopluated
-* DO NOT populate Kn_WET jumper
+| Footprint | Dry contact output | Wet contact output (AC voltage out) |
+|---|---|---|
+| Kn_DRY (closer to relay) | Populate | Do not populate |
+| Kn_230VAC (closer to edge) | Do not populate | Populate |
+| KN_WET jumper | Do not populate | Populate using ~1mm^2 wire |
 
-### Wet contact output
-* Populate Kn_230VAC terminal (closer to the edge)
-* Leave Kn_DRY terminal unpopulated
-* Short Kn_WET by ~1mm^2 wire
-* Remember to populate F2 or F3 by fuse holder and provide a proper fuse. **Remember to select proper amperage based on fuse rate and wiring**
+If you are using wet contact output(s), remember to populate F2 or F3 by fuse holder and provide a proper fuse. **Remember to select proper amperage based on fuse rate and wiring**
 
 ### Negative voltage controlled coils with common VCC voltage (recommended)
 If you would like to use eg. NPN or MOSFET-N transistor to drive relay coils and supply it from Hi-Link supply voltage output:
@@ -45,42 +42,20 @@ If you would like to use PNP or MOSFET-P transistors to drive relay coils:
 * Short COM_RELAY with GND
 * Solder suppression diodes **opposite to PCB symbol** (bar is anode)
 
+
+
 ## Optoisolated inputs
 
-### Dry contact (positive)
+| Footprint | Dry contact (positive) | Dry contact (negative) | Wet contact (low voltage) | Wet contact (AC voltage) |
+|---|---|---|---|---|
+| J10/J11 | Solder 2-pole terminal to pins 1-2 (left), short pins 3-4 | Solder 2-pole terminal to pins 3-4 (right), short pins 1-2 | Solder 2-pole terminal to pins 2-3 (middle) | Solder 2-pole terminal to pins 2-3 (middle) |
+| D6/D8 | Short | Short | Short | Populate |
+| R3/R4 | Short | Short | Short | Populate |
+| C4/C6 | Do not populate | Do not populate | Do not populate | Populate |
+| D7/D9 | Do not populate | Do not populate | Do not populate | Populate |
 
-* Solder 2-pole terminal to pins 1 and 2 (left) of J10/J11 footprint
-* Short pins 3 and 4 of J10/J11 footprint
-* Short D6/D8
-* Short R3/R4
-* Do not populate C5/C6 and D7/D9
-* Populate R2/R5
-* Use PC817 or similar transoptor
-
-
-### Dry contact (negative)
-
-* Solder 2-pole terminal to pins 3 and 4 (right) of J10/J11 footprint
-* Short pins 1 and 2 of J10/J11 footprint
-* Short D6/D8
-* Short R3/R4
-* Do not populate C5/C6 and D7/D9
-* Populate R2/R5
-* Use PC817 or similar transoptor
-
-### Wet contact (low voltage)
-
-* Solder 2-pole terminal to pins 2 and 3 (middle) of J10/J11 footprint
-* Short D6/D8
-* Short R3/R4
-* Do not populate C5/C6 and D7/D9
+For all cases:
 * Populate R2/R5 - use proper resistance to provide suitable diode current with nominal voltage
-* Use PC817 or similar transoptor
-
-### Wet contact (AC voltage)
-
-* Solder 2-pole terminal to pins 2 and 3 (middle) of J10/J11 footprint
-* Populate all elements 
 * Use PC817 or similar transoptor
 
 ## Single DC voltage (no DC/DC or LDO)
