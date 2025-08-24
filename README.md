@@ -2,6 +2,11 @@
 
 After ~10 similar projects I used to make using perfboards and PCBs etched at home I have created this PCB project to utillize it in as many automation projects as possible.
 
+
+| ![PCB front](assets/r1_front.png) | ![PCB back](assets/r1_back.png) |
+|---|---|
+| Front | Back |
+
 # What does it have
 
 * 2.54 mm perfboard-like field for whatever you want
@@ -16,6 +21,12 @@ After ~10 similar projects I used to make using perfboards and PCBs etched at ho
 * AC to low voltage converted (12V, 5V or similar) using HiLink HLK series
 * optional LDO or DC/DC converter (the net is called 5V but it can be any voltage by using proper LDO or converter)
 * power LED diode
+
+# Some projects I have done based on this PCB
+
+| | |
+|---|---|
+| ![](assets/godbus1.png) | ![](assets/godbus2.png) |
 
 # Configuration and customisation options
 
